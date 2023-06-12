@@ -32,3 +32,12 @@ grains:
       - region: '{{ .inputs.region }}'
       outputs:
       - endpoint
+  helloworld1:
+    depends-on: s3-create
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: assets/terraform/hello-world-source
+      agent:
+        name: '{{ .inputs.agent }}'    
